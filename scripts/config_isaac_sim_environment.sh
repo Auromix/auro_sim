@@ -10,11 +10,12 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # Config isaac sim environment
 ISAAC_SIM_VERSION="isaac-sim-4.0.0"
 ISAAC_SIM_PATH="${HOME}/.local/share/ov/pkg/${ISAAC_SIM_VERSION}"
-ISAAC_SIM_PYTHON_EXE="${ISAAC_SIM_PATH}/python.sh"
-ISAAC_SIM_APP_EXE="${ISAAC_SIM_PATH}/isaac-sim.sh"
+ISAAC_SIM_PYTHON_SCRIPT="${ISAAC_SIM_PATH}/python.sh"
+ISAAC_SIM_PYTHON_EXE="${ISAAC_SIM_PATH}/kit/python/bin/python3"
+ISAAC_SIM_APP_SCRIPT="${ISAAC_SIM_PATH}/isaac-sim.sh"
 BASHRC="${HOME}/.bashrc"
 # echo isaac_sim_path: $ISAAC_SIM_PATH
-# echo isaac_sim_python_exe: $ISAAC_SIM_PYTHON_EXE
+# echo ISAAC_SIM_PYTHON_SCRIPT: $ISAAC_SIM_PYTHON_SCRIPT
 # echo bashrc: $BASHRC
 
 if [ ! -d "$ISAAC_SIM_PATH" ]; then
@@ -36,12 +37,13 @@ else
     {
         echo ""
         echo $START_MARKER
-        echo "ISAAC_SIM_VERSION=$ISAAC_SIM_VERSION"
+        echo "export ISAAC_SIM_VERSION=$ISAAC_SIM_VERSION"
         echo "export ISAAC_SIM_PATH=${ISAAC_SIM_PATH}"
+        echo "export ISAAC_SIM_PYTHON_SCRIPT=${ISAAC_SIM_PYTHON_SCRIPT}"
         echo "export ISAAC_SIM_PYTHON_EXE=${ISAAC_SIM_PYTHON_EXE}"
-        echo "export ISAAC_SIM_APP_EXE=${ISAac_SIM_APP_EXE}"
-        echo "alias omni_python=${ISAAC_SIM_PYTHON_EXE}"
-        echo "alias isaac_sim=${ISAAC_SIM_APP_EXE}"
+        echo "export ISAAC_SIM_APP_SCRIPT=${ISAAC_SIM_APP_SCRIPT}"
+        echo "alias omni_python=${ISAAC_SIM_PYTHON_SCRIPT}"
+        echo "alias isaac_sim=${ISAAC_SIM_APP_SCRIPT}"
         echo $END_MARKER
         echo ""
     } >>"$BASHRC"
