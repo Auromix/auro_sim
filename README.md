@@ -23,5 +23,5 @@ script_name="copy_isaac_sim_local_assets.sh" && directory_name="/tmp" && downloa
   Run script to setup isaac sim environment for VS Code(IDEs).
 
 ```bash
-script_name="setup_isaac_sim_ide_environment.sh" && directory_name="$HOME/auromix/isaac_sim_scripts" && download_url="https://raw.githubusercontent.com/Auromix/auro_sim/main/scripts" && full_script_path="$directory_name/$script_name" && mkdir -p $directory_name && wget -O $full_script_path $download_url/$script_name && echo "source $full_script_path" >> $HOME/.bashrc && chmod +x $full_script_path && clear && bash $full_script_path
+script_name="setup_isaac_sim_ide_environment.sh" && directory_name="$HOME/auromix/isaac_sim_scripts" && download_url="https://raw.githubusercontent.com/Auromix/auro_sim/main/scripts" && full_script_path="$directory_name/$script_name" && mkdir -p $directory_name && wget -O $full_script_path $download_url/$script_name && echo "source $full_script_path" >> $HOME/.bashrc && chmod +x $full_script_path && bash $full_script_path
 ```

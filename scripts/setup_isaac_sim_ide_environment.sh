@@ -1,6 +1,6 @@
 #!/bin/bash
 # set -x
-set -e
+# set -e
 # Herman Ye@Auromix
 # 2024-06-25
 
@@ -44,3 +44,6 @@ for ext_dir in "${EXTENSIONS_DIRS[@]}"; do
         export PYTHONPATH="$PYTHONPATH:$dir"
     done
 done
+
+echo "Isaac Sim IDE environment setup complete."
+echo "If you want to cancel the setup, please delete it in ~/.bashrc"
