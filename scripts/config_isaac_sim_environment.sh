@@ -2,21 +2,25 @@
 # set -x
 set -e
 # Herman Ye@Auromix
-# 2024-06-18
+# 2024-09-02
 
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-# echo script_dir: $script_dir
 
-# Config isaac sim environment
-ISAAC_SIM_VERSION="isaac-sim-4.0.0"
+# Prompt user to input Isaac Sim version
+read -p "Please enter the Isaac Sim version you want to configure (e.g., 4.1.0): " input_version
+
+# Validate the input version
+if [[ ! $input_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "Invalid version format. Please use the format x.x.x (e.g., 4.1.0)."
+    exit 1
+fi
+
+ISAAC_SIM_VERSION="isaac-sim-${input_version}"
 ISAAC_SIM_PATH="${HOME}/.local/share/ov/pkg/${ISAAC_SIM_VERSION}"
 ISAAC_SIM_PYTHON_SCRIPT="${ISAAC_SIM_PATH}/python.sh"
 ISAAC_SIM_PYTHON_EXE="${ISAAC_SIM_PATH}/kit/python/bin/python3"
 ISAAC_SIM_APP_SCRIPT="${ISAAC_SIM_PATH}/isaac-sim.sh"
 BASHRC="${HOME}/.bashrc"
-# echo isaac_sim_path: $ISAAC_SIM_PATH
-# echo ISAAC_SIM_PYTHON_SCRIPT: $ISAAC_SIM_PYTHON_SCRIPT
-# echo bashrc: $BASHRC
 
 if [ ! -d "$ISAAC_SIM_PATH" ]; then
     echo "ISAAC Sim version '$ISAAC_SIM_VERSION' is not installed."
