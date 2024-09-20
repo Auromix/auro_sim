@@ -4,6 +4,8 @@
 # Herman Ye@Auromix
 # 2024-06-25
 
+# Install pip
+sudo apt install pip -y
 # Install commentjson
 pip3 install commentjson
 
