@@ -22,7 +22,9 @@ import os
 
 import commentjson
 
-isaac_sim_version = "isaac-sim-4.0.0"
+isaac_sim_prefix="isaac-sim-"
+isaac_sim_version = input("Please enter the Isaac Sim version (e.g., 4.1.0): ").strip()
+isaac_sim_version = isaac_sim_prefix + isaac_sim_version
 isaac_sim_path = os.path.join(os.getenv("HOME"), ".local/share/ov/pkg", isaac_sim_version)
 isaac_sim_vscode_settings_file = os.path.join(isaac_sim_path, '.vscode', 'settings.json')
 current_dir = os.getcwd()
