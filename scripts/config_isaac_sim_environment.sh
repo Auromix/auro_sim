@@ -7,11 +7,11 @@ set -e
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 # Prompt user to input Isaac Sim version
-read -p "Please enter the Isaac Sim version you want to configure (e.g., 4.1.0): " input_version
+read -p "Please enter the Isaac Sim version you want to configure (e.g., 4.2.0): " input_version
 
 # Validate the input version
 if [[ ! $input_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    echo "Invalid version format. Please use the format x.x.x (e.g., 4.1.0)."
+    echo "Invalid version format. Please use the format x.x.x (e.g., 4.2.0)."
     exit 1
 fi
 
