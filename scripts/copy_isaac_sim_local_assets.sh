@@ -4,24 +4,18 @@ set -e
 # Herman Ye@Auromix
 # 2024-06-18
 
-# Create final package in /Download
+# Ask user to input the version number
+read -p "Enter the version number (e.g., 4.2.0): " VERSION
+
+# Create final package in /Downloads
 echo "Create final package in /Download"
 mkdir -p ~/Downloads/isaac_sim_assets_final_package
-# Copy package 1 to final_package
-echo "Copy package 1 to final_package"
-sleep 3
-cp -v -r ~/Downloads/isaac-sim-assets-1-4.0.0/* ~/Downloads/isaac_sim_assets_final_package/
-# Copy package 2 to final_package
-echo "Copy package 2 to final_package"
-sleep 3
-cp -v -r ~/Downloads/isaac-sim-assets-2-4.0.0/* ~/Downloads/isaac_sim_assets_final_package/
-# Copy package 3 to final_package
-echo "Copy package 3 to final_package"
-sleep 3
-cp -v -r ~/Downloads/isaac-sim-assets-3-4.0.0/* ~/Downloads/isaac_sim_assets_final_package/
-# Copy package 4 to final_package
-echo "Copy package 4 to final_package"
-sleep 3
-cp -v -r ~/Downloads/isaac-sim-assets-4-4.0.0/* ~/Downloads/isaac_sim_assets_final_package/
 
-echo "All assets are copied to final_package"
+# Copy packages based on the version input
+for i in {1..4}; do
+  echo "Copy package $i to final_package (version: $VERSION)"
+  sleep 3
+  cp -v -r ~/Downloads/isaac-sim-assets-${i}-${VERSION}/* ~/Downloads/isaac_sim_assets_final_package/
+done
+
+echo "All assets are copied to final_package (version: $VERSION)"
