@@ -12,7 +12,7 @@ pip3 install commentjson
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 download_url="https://raw.githubusercontent.com/Auromix/auro_sim/main/scripts"
 script_name="setup_isaac_sim_ide_environment.py"
-directory_name=$(dirname "$(pwd)")
+directory_name="/tmp"
 
 # download script
 wget -O "${directory_name}/${script_name}" "${download_url}/${script_name}"
